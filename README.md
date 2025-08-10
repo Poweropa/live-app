@@ -1,5 +1,10 @@
 # Live-App
 
+This is a Next.js test application with
+
+- local persistant data with prisma
+- external auth service with clerk
+
 ## Install Next.js
 
 ```
@@ -50,33 +55,9 @@ npm i @prisma/client
 npx --yes shadcn@latest add button --cwd nextjs
 ```
 
-## content of /nextjs/src/app/page.tsx
-
-```
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-
-export default function Home() {
-  const [count, setCount] = useState(0);
-  const handleClick = async () => {
-    setCount(count + 1);
-  };
-
-  return (
-    <>
-      <Button onClick={handleClick} className="bold">
-        Klick {count}
-      </Button>
-    </>
-  );
-}
-```
-
 ## create /nextjs/.env
 
-Replace **MY_SECRET** in the following code:
+Create .env file and insert the following code by replacing **MY_SECRET** with your keys.
 
 ```
 DATABASE_URL="file:./dev.db"
@@ -94,3 +75,29 @@ npm run dev
 ## start app
 
 Open your browse with url: [http://localhost:3000](http://localhost:3000)
+
+## example component nextjs\src\components\ButtonAdd.tsx
+
+```
+"use client";
+
+import { useState } from "react";
+import { Button } from "./ui/button";
+
+const ButtonAdd = () => {
+  const [count, setCount] = useState(0);
+
+  const handleClick = async () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <Button onClick={handleClick} className="bold">
+      Klick {count}
+    </Button>
+  );
+};
+
+export default ButtonAdd;
+
+```
