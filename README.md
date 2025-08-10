@@ -74,6 +74,16 @@ export default function Home() {
 }
 ```
 
+## create /nextjs/.env
+
+Replace **MY_SECRET** in the following code:
+
+```
+DATABASE_URL="file:./dev.db"
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=MY_SECRET
+CLERK_SECRET_KEY=MY_SECRET
+```
+
 ## start server
 
 ```
@@ -84,13 +94,3 @@ npm run dev
 ## start app
 
 Open your browse with url: [http://localhost:3000](http://localhost:3000)
-
-## create /nextjs/.env
-
-Replace **MY_SECRET** in the following code:
-
-```
-DATABASE_URL="file:./dev.db"
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=MY_SECRET
-CLERK_SECRET_KEY=MY_SECRET
-```
