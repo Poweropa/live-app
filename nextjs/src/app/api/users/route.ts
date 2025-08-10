@@ -1,0 +1,36 @@
+import { apiGet } from "@/db/database";
+
+
+export async function GET(req: Request, res: Response) {
+ const query = `
+    SELECT * from users
+  `;
+
+ let status, body;
+ try {
+
+  await apiGet(query)
+   .then((res:any) => {
+    status = 200;
+    body = res;
+   })
+   .catch((err: Error) => {
+    status = 400;
+    body = { error: err };
+   });
+
+
+  return Response.json(body, {
+   status,
+  });
+ } catch (error: any) {
+
+  console.error("error bei GET. run: /api/migrate", error.message);
+  return Response.json(
+   { error: error },
+   {
+    status: 400,
+   }
+  );
+ }
+}
